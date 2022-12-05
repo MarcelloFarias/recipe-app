@@ -12,19 +12,14 @@ const RandomRecipe = ({ recipe }) => {
                 if(item === `strIngredient${i}`) {
                     ingredients.push(recipe[item]);
                 }
-            }
-        });
 
-        setIngredients(ingredients);
-
-        Object.keys(recipe).forEach((item) => {
-            for(let i = 1; i <= 20; i++) {
                 if(item === `strMeasure${i}`) {
                     measures.push(recipe[item]);
                 }
             }
         });
 
+        setIngredients(ingredients);
         setMeasures(measures);
     }, [recipe, ingredients, measures]);
 
