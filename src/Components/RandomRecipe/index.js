@@ -1,28 +1,46 @@
 import React, { useEffect, useState } from "react";
 import './style.css';
 
-const RandomRecipe = () => {
+const RandomRecipe = ({ recipe }) => {
 
-    const [ recipe, setRecipe ] = useState({});
+    const [ ingredients, setIngredients ] = useState([]);
+    const [ measures, setMeasures ] = useState([]);
 
     useEffect(() => {
-        getRandomRecipe();
-    }, []);
+        Object.keys(recipe).forEach((item) => {
+            for(let i = 1; i <= 20; i++) {
+                if(item === `strIngredient${i}`) {
+                    ingredients.push(recipe[item]);
+                }
+            }
+        });
 
-    async function getRandomRecipe() {
-        await fetch('https://www.themealdb.com/api/json/v1/1/random.php')
-        .then((response) => response.json())
-        .then((data) => {
-            setRecipe(data.meals[0]);
-            console.log(data.meals[0]);
-        })
-        .catch((error) => console.log(error))
-    }
+        setIngredients(ingredients);
+
+        Object.keys(recipe).forEach((item) => {
+            for(let i = 1; i <= 20; i++) {
+                if(item === `strMeasure${i}`) {
+                    measures.push(recipe[item]);
+                }
+            }
+        });
+
+        setMeasures(measures);
+    }, [recipe, ingredients, measures]);
 
     return (
-        <main>
+        <>  
+            <div className='random-recipe-container'>
+                <img className='random-recipe-image' src={recipe.strMealThumb} alt="recipe-thumb" />
 
-        </main>
+                <div className="recipe-details">
+                    <h1 className="recipe-name">{recipe.strMeal}</h1>
+                    <p className="recipe-category">Category: {recipe.strCategory}</p>
+                    <p className="recipe-area">Area: {recipe.strArea}</p>  
+                    <a href={recipe.strYoutube} className="recipe-video">{recipe.strYoutube}</a> 
+                </div>
+            </div>
+        </>
     );
 }
 

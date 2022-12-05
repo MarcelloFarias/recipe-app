@@ -1,0 +1,24 @@
+.random-recipe-container {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    flex-direction: row;
+}
+
+.random-recipe-image {
+    max-width: 300px;
+    border-radius: 4px;
+}
+
+.recipe-details {
+    display: flex;
+    align-items: left;
+    justify-content: space-between;
+    flex-direction: column;
+    height: 200px;    
+}
+
+.recipe-details .recipe-area, .recipe-category {
+    font-size: 1.5rem;
+}
