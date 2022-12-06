@@ -1,13 +1,12 @@
 .ingredients-container {
     width: 100%;
     height: auto;
-    margin-top: 25px;
+    margin: 25px 0;
     padding: 2rem;
     display: flex;
     align-items: left;
     justify-content: center;
     flex-direction: column;
-    background: red;
 }
 
 .ingredient-list {

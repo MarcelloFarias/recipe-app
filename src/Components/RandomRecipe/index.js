@@ -5,6 +5,7 @@ import './style.css';
 const RandomRecipe = ({ recipe }) => {
     const ingredients = [];
     const measures = [];
+    const ingredientsWithMeasures = [];
 
     Object.keys(recipe).forEach((item) => {
         for(let i = 1; i <= 20; i++) {
@@ -17,6 +18,10 @@ const RandomRecipe = ({ recipe }) => {
             }
         }
     });
+
+    for(let i = 0; i < ingredients.length; i++) {
+        ingredientsWithMeasures.push({ingredient: ingredients[i], measure: measures[i]});
+    }
 
     return (
         <>  
@@ -32,7 +37,12 @@ const RandomRecipe = ({ recipe }) => {
                     </div>
                 </div>
 
-                <IngredientList ingredients={ingredients} measures={measures} />
+                <IngredientList ingredients={ingredientsWithMeasures} />
+
+                <div className="recipe-instructions">
+                    <h2>Instrunctions: </h2>
+                    <p>{recipe.strInstructions}</p>
+                </div>
             </div>
         </>
     );

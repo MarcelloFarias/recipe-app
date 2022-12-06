@@ -22,3 +22,11 @@
 .recipe-details .recipe-area, .recipe-category {
     font-size: 1.5rem;
 }
+
+.recipe-instructions {
+    padding: 2rem;
+}
+
+.recipe-instructions h2 {
+    margin-bottom: 20px;
+}
