@@ -26,13 +26,15 @@ const RandomRecipe = ({ recipe }) => {
     return (
         <>  
             <div className='random-recipe-container'>
-                <img className='random-recipe-image' src={recipe.strMealThumb} alt="recipe-thumb" />
+                <div className="random-recipe-container-top">
+                    <img className='random-recipe-image' src={recipe.strMealThumb} alt="recipe-thumb" />
 
-                <div className="recipe-details">
-                    <h1 className="recipe-name">{recipe.strMeal}</h1>
-                    <p className="recipe-category">Category: {recipe.strCategory}</p>
-                    <p className="recipe-area">Area: {recipe.strArea}</p>  
-                    <a href={recipe.strYoutube} className="recipe-video">{recipe.strYoutube}</a> 
+                    <div className="recipe-details">
+                        <h1 className="recipe-name">{recipe.strMeal}</h1>
+                        <p className="recipe-category">Category: {recipe.strCategory}</p>
+                        <p className="recipe-area">Area: {recipe.strArea}</p>  
+                        <a href={recipe.strYoutube} className="recipe-video">{recipe.strYoutube}</a> 
+                    </div>
                 </div>
             </div>
         </>
