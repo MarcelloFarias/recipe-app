@@ -1,27 +1,22 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
+import IngredientList from "../IngredientList/index.js";
 import './style.css';
 
 const RandomRecipe = ({ recipe }) => {
+    const ingredients = [];
+    const measures = [];
 
-    const [ ingredients, setIngredients ] = useState([]);
-    const [ measures, setMeasures ] = useState([]);
-
-    useEffect(() => {
-        Object.keys(recipe).forEach((item) => {
-            for(let i = 1; i <= 20; i++) {
-                if(item === `strIngredient${i}`) {
-                    ingredients.push(recipe[item]);
-                }
-
-                if(item === `strMeasure${i}`) {
-                    measures.push(recipe[item]);
-                }
+    Object.keys(recipe).forEach((item) => {
+        for(let i = 1; i <= 20; i++) {
+            if(item === `strIngredient${i}` && recipe[item] !== "") {
+                ingredients.push(recipe[item]);
             }
-        });
 
-        setIngredients(ingredients);
-        setMeasures(measures);
-    }, [recipe, ingredients, measures]);
+            if(item === `strMeasure${i}` && recipe[item] !== ' ' && recipe[item] !== "") {
+                measures.push(recipe[item]);
+            }
+        }
+    });
 
     return (
         <>  
@@ -36,6 +31,8 @@ const RandomRecipe = ({ recipe }) => {
                         <a href={recipe.strYoutube} className="recipe-video">{recipe.strYoutube}</a> 
                     </div>
                 </div>
+
+                <IngredientList ingredients={ingredients} measures={measures} />
             </div>
         </>
     );
