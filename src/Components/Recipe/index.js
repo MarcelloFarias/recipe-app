@@ -1,5 +1,5 @@
 import React from "react";
-import IngredientList from "../IngredientList/index.js";
+import Ingredients from "../Ingredients/index.js";
 import './style.css';
 
 const RandomRecipe = ({ recipe }) => {
@@ -37,12 +37,7 @@ const RandomRecipe = ({ recipe }) => {
                     </div>
                 </div>
 
-                <IngredientList ingredients={ingredientsWithMeasures} />
-
-                <div className="recipe-instructions">
-                    <h2>Instrunctions: </h2>
-                    <p>{recipe.strInstructions}</p>
-                </div>
+                <Ingredients ingredients={ingredientsWithMeasures} instructions={recipe.strInstructions} />
             </div>
         </>
     );

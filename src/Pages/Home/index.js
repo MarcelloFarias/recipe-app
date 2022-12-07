@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import './style.css';
 import Header from '../../Components/Header/index.js';
-import RandomRecipe from '../../Components/RandomRecipe/index.js';
+import Recipe from '../../Components/Recipe/index.js';
 
 const Home = () => {
     const [ recipe, setRecipe ] = useState({});
@@ -24,7 +24,7 @@ const Home = () => {
         <>
             <Header />
             <main>
-                <RandomRecipe recipe={recipe} />
+                <Recipe recipe={recipe} />
             </main>
         </>
     );
