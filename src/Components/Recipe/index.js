@@ -2,7 +2,7 @@ import React from "react";
 import Ingredients from "../Ingredients/index.js";
 import './style.css';
 
-const RandomRecipe = ({ recipe }) => {
+const Recipe = ({ recipe }) => {
     const ingredients = [];
     const measures = [];
     const ingredientsWithMeasures = [];
@@ -43,4 +43,4 @@ const RandomRecipe = ({ recipe }) => {
     );
 }
 
-export default RandomRecipe;
+export default Recipe;
