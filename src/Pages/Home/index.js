@@ -24,6 +24,9 @@ const Home = () => {
         <>
             <Header />
             <main>
+                <div className="button-container">
+                    <button className="btn-new-recipe" onClick={getRandomRecipe}>New Recipe</button>
+                </div>
                 <Recipe recipe={recipe} />
             </main>
         </>
