@@ -18,6 +18,7 @@ const Categoties = () => {
         .then((data) => {
             setCategories(data.categories);
             console.log(categories);
+            console.log(data)
         })
         .catch((error) => console.log(error));
     }
@@ -35,7 +36,10 @@ const Categoties = () => {
                 <CategoriesList>
                     {categories.map((category, index) => {
                         return (
-                            <li key={index} className='category'>{category.strCategory}</li>
+                            <li key={index} className='category'>
+                                <img src={category.strCategoryThumb} className='category-image' alt='category-thumb' />
+                                <p className="category-name">{category.strCategory}</p>
+                            </li>
                         );
                     })}
                 </CategoriesList>                
