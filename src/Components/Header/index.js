@@ -1,4 +1,5 @@
 import React from "react";
+import Categories from "../Categories/index.js";
 import { Link } from "react-router-dom";
 import './style.css';
 
@@ -12,9 +13,7 @@ const Header = () => {
                     <li>Home</li>
                 </Link>
 
-                <Link to='/categories'>
-                    <li>Categories</li>
-                </Link>
+                <Categories />
             </ul>
         </header>
     );
