@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import Header from '../../Components/Header/index.js';
-//import { Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import './style.css';
 import { useParams } from 'react-router-dom';
 
@@ -14,7 +14,6 @@ const Category = () => {
         .then((response) => response.json())
         .then((data) => {
             setRecipes(data.meals);
-            console.log(data.meals)
         })
         .catch((error) => console.log(error));
     }
@@ -28,6 +27,9 @@ const Category = () => {
             <Header />
 
             <div className='category-name-container'>
+                <Link to='/categories' style={{textDecoration: 'none'}}>
+                    <button className="btn-back">Back</button>
+                </Link>
                 <h1 className='category-name'>{category}</h1>
             </div>
 
