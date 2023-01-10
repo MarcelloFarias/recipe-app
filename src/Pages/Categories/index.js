@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-//import { Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import Header from '../../Components/Header/index.js';
 import './style.css';
 
@@ -31,10 +31,12 @@ const Categories = () => {
                 <ul className='categories-list'>
                     {categories.map((category, index) => {
                         return (
-                            <li key={index} className='category-card'> 
-                                <img className='category-image' src={category.image} alt='category-thumb' />
-                                <h2 className='category-name'>{category.name}</h2>
-                            </li>
+                            <Link to={`/categories/${category.name}`} style={{textDecoration: 'none'}} key={index}>
+                                <li className='category-card'> 
+                                    <img className='category-image' src={category.image} alt='category-thumb' />
+                                    <h2 className='category-name'>{category.name}</h2>
+                                </li>
+                            </Link>
                         );
                     })}
                 </ul>

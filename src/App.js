@@ -3,6 +3,7 @@ import Home from './Pages/Home/index.js';
 import { Routes, Route } from 'react-router-dom';
 import './App.css';
 import Categories from './Pages/Categories/index.js';
+import Category from './Pages/Category/index.js';
 
 function App() {
   return (
@@ -10,6 +11,7 @@ function App() {
       <Routes>
         <Route path='/' element={<Home />} />
         <Route path='/categories' element={<Categories />} />
+        <Route path='/categories/:category' element={<Category />} />
       </Routes>
     </>
   );
