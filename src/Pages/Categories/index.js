@@ -8,13 +8,15 @@ const Categories = () => {
     const [ categories, setCategories ] = useState([]);
 
     async function getAllCategories() {
-        const response = await fetch('https://www.themealdb.com/api/json/v1/1/categories.php'); 
-        const data = await response.json();
-
-        data.categories.forEach(async (category) => {
-            categories.push({name: category.strCategory, image: category.strCategoryThumb});  
-            setCategories([...categories]);  
-        });
+        await fetch('https://www.themealdb.com/api/json/v1/1/categories.php')
+        .then((response) => response.json())
+        .then((data) => {
+            data.categories.forEach(async (category) => {
+                categories.push({name: category.strCategory, image: category.strCategoryThumb});  
+                setCategories([...categories]);  
+            });
+        })
+        .catch((error) => console.log(error));
     }
 
     useEffect(() => {
