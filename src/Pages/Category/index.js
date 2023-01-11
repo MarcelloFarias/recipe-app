@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import Header from '../../Components/Header/index.js';
 import ButtonBack from '../../Components/ButtonBack/index.js';
+import { Link } from 'react-router-dom';
 import './style.css';
 import { useParams } from 'react-router-dom';
 
@@ -35,10 +36,12 @@ const Category = () => {
                 <ul className='recipe-category-list'>
                     {recipes.map((recipe, index) => {
                         return (
-                            <li key={index} className='recipe-category-meal'>
-                                <img src={recipe.strMealThumb} alt='meal-thumb' className='recipe-category-image' />
-                                <h2 className='recipe-category-name'>{recipe.strMeal}</h2>
-                            </li>
+                            <Link to={`/${category}/${recipe.strMeal}`} style={{textDecoration: 'none'}} key={index} >
+                                <li className='recipe-category-meal'>
+                                    <img src={recipe.strMealThumb} alt='meal-thumb' className='recipe-category-image' />
+                                    <h2 className='recipe-category-name'>{recipe.strMeal}</h2>
+                                </li>
+                            </Link>
                         );
                     })}
                 </ul>

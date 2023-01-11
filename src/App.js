@@ -4,6 +4,7 @@ import { Routes, Route } from 'react-router-dom';
 import './App.css';
 import Categories from './Pages/Categories/index.js';
 import Category from './Pages/Category/index.js';
+import FilteredRecipe from './Pages/FilteredRecipe/index.js';
 
 function App() {
   return (
@@ -12,6 +13,7 @@ function App() {
         <Route path='/' element={<Home />} />
         <Route path='/categories' element={<Categories />} />
         <Route path='/categories/:category' element={<Category />} />
+        <Route path='/:category/:recipe' element={<FilteredRecipe />} />
       </Routes>
     </>
   );
