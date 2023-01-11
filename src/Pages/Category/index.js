@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import Header from '../../Components/Header/index.js';
-import { Link } from 'react-router-dom';
+import ButtonBack from '../../Components/ButtonBack/index.js';
 import './style.css';
 import { useParams } from 'react-router-dom';
 
@@ -27,9 +27,7 @@ const Category = () => {
             <Header />
 
             <div className='category-name-container'>
-                <Link to='/categories' style={{textDecoration: 'none'}}>
-                    <button className="btn-back">Back</button>
-                </Link>
+                <ButtonBack path='/categories' />
                 <h1 className='category-name'>{category}</h1>
             </div>
 
